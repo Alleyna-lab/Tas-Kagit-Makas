@@ -1,4 +1,4 @@
-
+`
 import random
 
 def kullanici_secimi():
@@ -42,3 +42,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+`
