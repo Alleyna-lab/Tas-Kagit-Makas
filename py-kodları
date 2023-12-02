@@ -1,0 +1,44 @@
+
+import random
+
+def kullanici_secimi():
+    print("Taş, Kağıt ya da Makas?")
+    secim = input("Seçiminizi yapın: ").lower()
+    while secim not in ['taş', 'kağıt', 'makas']:
+        print("Geçersiz seçim. Lütfen 'taş', 'kağıt' ya da 'makas' seçin.")
+        secim = input("Seçiminizi yapın: ").lower()
+    return secim
+
+def bilgisayar_secimi():
+    return random.choice(['taş', 'kağıt', 'makas'])
+
+def oyunu_degerlendir(kullanici, bilgisayar):
+    if kullanici == bilgisayar:
+        return "Berabere!"
+    elif (kullanici == 'taş' and bilgisayar == 'makas') or \
+         (kullanici == 'kağıt' and bilgisayar == 'taş') or \
+         (kullanici == 'makas' and bilgisayar == 'kağıt'):
+        return "Kazandınız!"
+    else:
+        return "Kaybettiniz!"
+
+def main():
+    print("Taş-Kağıt-Makas Oyununa Hoş Geldiniz!")
+
+    while True:
+        kullanici = kullanici_secimi()
+        bilgisayar = bilgisayar_secimi()
+
+        print(f"Bilgisayarın seçimi: {bilgisayar}")
+
+        sonuc = oyunu_degerlendir(kullanici, bilgisayar)
+        print(f"Sonuç: {sonuc}")
+
+        devam = input("Tekrar oynamak istiyor musunuz? (evet/hayır): ").lower()
+        if devam != 'evet':
+            break
+
+    print("Oyunu kapattınız. İyi günler!")
+
+if __name__ == "__main__":
+    main()
